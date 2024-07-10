@@ -1,0 +1,6 @@
+# Ignora la carpeta node_modules
+node_modules
+
+# Ignorar archivos package
+package-lock.json
+package.json
