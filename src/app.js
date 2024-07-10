@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 app.use("/",productsRouter)
-//app.use("/",cartsRouter)
+app.use("/",cartsRouter)
 
 app.listen(PORT,()=>{
     console.log(`Server running on port ${PORT}`)
