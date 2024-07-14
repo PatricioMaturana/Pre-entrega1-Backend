@@ -1,0 +1,20 @@
+[
+  {
+    "id": "002",
+    "title": "titulo ejemplo",
+    "description": "Este es un ejemplo",
+    "price": 45,
+    "status": "pendiente",
+    "stock": "10",
+    "category": "Susto"
+  },
+  {
+    "id": "001",
+    "title": "titulo ejemplo",
+    "description": "Este es un ejemplo",
+    "price": 45,
+    "status": "pendiente",
+    "stock": "10",
+    "category": "Susto"
+  }
+]
