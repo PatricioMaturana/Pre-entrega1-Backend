@@ -3,6 +3,15 @@ const router = express.Router();
 const fs = require('fs');
 const products=[];
 
+function validaTipoString(valor) {
+    return typeof valor === 'string' && valor.trim() !== '';
+}
+
+
+function validaTipoNumero(valor) {
+    return !isNaN(parseFloat(valor)) && isFinite(valor);
+}
+
 
 router.get("/api/products", (req, res) => {
     let limit = parseInt(req.query.limit)
@@ -78,6 +87,15 @@ router.delete("/api/products/:id", (req, res) => {
 
 router.post("/api/products",(req,res)=>{
     const {title, description, code, price, status, stock, category }= req.body;
+    if (status !== true && status !== false) {
+        return res.status(400).json({ error: 'El campo status debe ser true o false' });
+    }
+    if (!validaTipoString(title) || !validaTipoString(description) || !validaTipoString(code) || !validaTipoString(category)) {
+        return res.status(400).json({ error: 'Los campo title, code, description y category deben ser de tipo string' });
+    }
+    if (!validaTipoNumero(price)||!validaTipoNumero(stock)){
+        return res.status(400).json({ error: 'Los campo price y stock deben ser de tipo numerico' });
+    }
     if (fs.existsSync('productos.json') )
     {
         fs.readFile('productos.json','utf8',(err,data)=>{
@@ -88,11 +106,6 @@ router.post("/api/products",(req,res)=>{
             }else
             {
                 const contenidoJson = JSON.parse(data);
-             //   const producto = contenidoJson.find(producto => producto.id == id) 
-             //   if (producto)
-             //   {   asignaID(contenidoJson.map(p => p.id))
-             //       return res.status(404).json({mensage:`Producto ya existe`});
-             //   }   Math.max(...numero);
                 const newId = contenidoJson.length > 0 ? Math.max(...(contenidoJson.map(p => p.id))) + 1 : 1;
                 console.log(newId)
                 products.push({ id:newId, title, description, code, price, status, stock, category });
@@ -119,5 +132,50 @@ router.post("/api/products",(req,res)=>{
           });
     }
 })
+
+router.put("/products/:id", (req, res) => {
+    const idProducto = parseInt(req.params.id);
+    const { title, description, code, price, status, stock, category } = req.body;
+
+    if (status !== true && status !== false) {
+        return res.status(400).json({ error: 'El campo status debe ser true o false' });
+    }
+    if (!validaTipoString(title) || !validaTipoString(description) || !validaTipoString(code) || !validaTipoString(category)) {
+        return res.status(400).json({ error: 'Los campo title, code, description y category deben ser de tipo string' });
+    }
+    if (!validaTipoNumero(price)||!validaTipoNumero(stock)){
+        return res.status(400).json({ error: 'Los campo price y stock deben ser de tipo numerico' });
+    }
+
+    if (fs.existsSync('productos.json')) {
+        fs.readFile('productos.json', 'utf8', (err, data) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: 'Error servidor interno' });
+            } else {
+                let products = JSON.parse(data);
+                const index = products.findIndex(producto => producto.id === idProducto);
+                if (index !== -1) {
+                    // Actualizar el producto encontrado
+                    products[index] = { id: idProducto, title, description, code, price, status, stock, category };
+
+                    // Guardar los productos actualizados en el archivo JSON
+                    fs.writeFile('productos.json', JSON.stringify(products, null, 2), err => {
+                        if (err) {
+                            console.error(err);
+                            return res.status(500).json({ error: 'Error interno al actualizar el producto' });
+                        }
+                        res.json(products);
+                    });
+                } else {
+                    return res.status(404).json({ message: 'Producto no encontrado' });
+                }
+            }
+        });
+    } else {
+        return res.status(404).json({ message: 'Archivo de productos no encontrado' });
+    }
+});
+
 
 module.exports = router;
