@@ -121,8 +121,7 @@ router.post("/api/products",(req,res)=>{
         })
     }else
     {
-        const id = 1;
-        products.push({ id, title, description, code,  price, status, stock, category });
+        products.push({ id:1, title, description, code,  price, status, stock, category });
         fs.writeFile('productos.json', JSON.stringify(products,null,2),err =>{
             if(err){
                   console.error(err);
