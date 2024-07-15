@@ -57,6 +57,7 @@ Ejemplo Respuesta:
 ]
 
 ## Agregar un Producto
+El ID es automatico.
 POST: http://localhost:8080/api/products
 Ejemplo BODY::
 {
@@ -158,3 +159,6 @@ Ejemplo BODY:
 {
     "quantity": 1
 }
+
+
+![Ejemplo datos persistencia; archivo productos.json](../public/image.png)
