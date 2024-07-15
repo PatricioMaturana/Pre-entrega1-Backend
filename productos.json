@@ -1,20 +1,20 @@
 [
   {
     "id": 7,
-    "title": "titulo ere",
-    "description": "Este es un ejemplo",
-    "code": "223",
-    "price": 45,
+    "title": "modificar",
+    "description": "Efffo",
+    "code": "w223",
+    "price": 41,
     "status": false,
     "stock": 10,
     "category": "Susto"
   },
   {
     "id": 8,
-    "title": "titulo ere",
-    "description": "Este es un ejemplo",
-    "code": "223",
-    "price": 45,
+    "title": "modificar",
+    "description": "Efffo",
+    "code": "w223",
+    "price": 41,
     "status": false,
     "stock": 10,
     "category": "Susto"

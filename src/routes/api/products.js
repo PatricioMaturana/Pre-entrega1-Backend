@@ -133,8 +133,8 @@ router.post("/api/products",(req,res)=>{
     }
 })
 
-router.put("/products/:id", (req, res) => {
-    const idProducto = parseInt(req.params.id);
+router.put("/api/products/:pid", (req, res) => {
+    const idProducto = parseInt(req.params.pid);
     const { title, description, code, price, status, stock, category } = req.body;
 
     if (status !== true && status !== false) {
