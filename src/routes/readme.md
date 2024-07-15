@@ -5,7 +5,6 @@
 
 ## Estructura de Carpetas y Archivos
 
-```plaintext
 Pre-entrega1-Backend/
 │
 ├── carts.json
@@ -19,10 +18,11 @@ Pre-entrega1-Backend/
 
 
 
-Métodos Implementados
-Productos
+# Métodos Implementados #
 
-Lectura de un Producto por ID
+# Productos
+
+## Lectura de un Producto por ID
 
 GET: http://localhost:8080/api/products/:id
 Ejemplo: http://localhost:8080/api/products/7
@@ -40,7 +40,7 @@ Respuesta:
     }
 ]
 
-Lectura de Productos con Límite
+## Lectura de Productos con Límite
 GET: http://localhost:8080/api/products/?limit=1
 Ejemplo Respuesta:
 [
@@ -56,7 +56,7 @@ Ejemplo Respuesta:
     }
 ]
 
-Agregar un Producto
+## Agregar un Producto
 POST: http://localhost:8080/api/products
 Ejemplo BODY::
 {
@@ -69,7 +69,7 @@ Ejemplo BODY::
     "category": "Susto" 
 }
 
-Actualizar un Producto
+## Actualizar un Producto
 PUT: http://localhost:8080/api/products/:id
 Ejemplo BODY::
 {
@@ -82,7 +82,7 @@ Ejemplo BODY::
     "category": "Susto" 
 }
 
-Eliminar un Producto
+## Eliminar un Producto
 DELETE: http://localhost:8080/api/products/:id
 Ejemplo Respuesta:
 {
@@ -90,7 +90,7 @@ Ejemplo Respuesta:
 }
 
 
-Lectura de Todos los Productos
+## Lectura de Todos los Productos
 GET: http://localhost:8080/api/products
 Ejemplo Respuesta:
 [
@@ -117,9 +117,9 @@ Ejemplo Respuesta:
 ]
 
 
-Carritos
+# Carrito
 
-Crear un Carrito (id automatico)
+## Crear un Carrito (id automatico)
 POST: http://localhost:8080/api/carts
 Ejemplo BODY:
 {
@@ -151,7 +151,7 @@ Respuesta:
 }
 
 
-Agregar Producto a un Carrito
+## Agregar Producto a un Carrito
 POST: http://localhost:8080/api/carts/:cid/products/:pid
 Ejemplo: http://localhost:8080/api/carts/2/products/7
 Ejemplo BODY:
