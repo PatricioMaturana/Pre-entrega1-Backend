@@ -1,7 +1,27 @@
 [
   {
     "id": 1,
-    "title": "titulo ejemploeee",
+    "title": "titulo ere",
+    "description": "Este es un ejemplo",
+    "code": "223",
+    "price": 45,
+    "status": "pendiente",
+    "stock": 10,
+    "category": "Susto"
+  },
+  {
+    "id": 2,
+    "title": "titulo ere",
+    "description": "Este es un ejemplo",
+    "code": "223",
+    "price": 45,
+    "status": "pendiente",
+    "stock": 10,
+    "category": "Susto"
+  },
+  {
+    "id": 3,
+    "title": "titulo ere",
     "description": "Este es un ejemplo",
     "code": "223",
     "price": 45,

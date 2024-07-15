@@ -14,7 +14,6 @@ router.get("/api/products", (req, res) => {
             } else {
                 try {
                     let products = JSON.parse(data);
-                    console.log(limit);
                     if (!isNaN(limit) && limit > 0) {
                      const listarProducto = products.slice(0,limit);  
                      res.json(listarProducto); 
@@ -91,11 +90,12 @@ router.post("/api/products",(req,res)=>{
                 const contenidoJson = JSON.parse(data);
              //   const producto = contenidoJson.find(producto => producto.id == id) 
              //   if (producto)
-             //   {
+             //   {   asignaID(contenidoJson.map(p => p.id))
              //       return res.status(404).json({mensage:`Producto ya existe`});
-             //   }
-                const id = 2; //asignaID(contenidoJson);
-                products.push({ id, title, description, code, price, status, stock, category });
+             //   }   Math.max(...numero);
+                const newId = contenidoJson.length > 0 ? Math.max(...(contenidoJson.map(p => p.id))) + 1 : 1;
+                console.log(newId)
+                products.push({ id:newId, title, description, code, price, status, stock, category });
                 fs.writeFile('productos.json', JSON.stringify(products,null,2),err =>{
                 if(err){
                   console.error(err);
