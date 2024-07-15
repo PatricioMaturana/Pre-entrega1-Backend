@@ -161,4 +161,50 @@ Ejemplo BODY:
 }
 
 
+## Ejemplo datos persistencia; archivo productos.json
+[
+  {
+    "id": 7,
+    "title": "modificar",
+    "description": "Efffo",
+    "code": "w223",
+    "price": 41,
+    "status": false,
+    "stock": 10,
+    "category": "Susto"
+  },
+  {
+    "id": 8,
+    "title": "modificar",
+    "description": "Efffo",
+    "code": "w223",
+    "price": 41,
+    "status": false,
+    "stock": 10,
+    "category": "Susto"
+  }
+]
+
 ![Ejemplo datos persistencia; archivo productos.json](../public/image.png)
+
+## Ejemplo datos persistencia; archivo carrito.json
+[
+  {
+    "id": 1,
+    "products": []
+  },
+  {
+    "id": 2,
+    "products": [
+      {
+        "id": 7,
+        "quantity": 60
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "products": []
+  }
+]
+![Ejemplo datos persistencia; archivo carrito.json](../public/image2.png)
