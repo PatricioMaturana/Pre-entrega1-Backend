@@ -5,7 +5,7 @@
 
 ## Estructura de Carpetas y Archivos
 
-Pre-entrega1-Backend/
+```Pre-entrega1-Backend/
 │
 ├── carts.json
 ├── productos.json
@@ -15,7 +15,7 @@ Pre-entrega1-Backend/
     │   └── api/
     │       ├── carts.js
     │       └── products.js
-
+```
 
 
 # Métodos Implementados #
@@ -27,6 +27,7 @@ Pre-entrega1-Backend/
 GET: http://localhost:8080/api/products/:id
 Ejemplo: http://localhost:8080/api/products/7
 Respuesta:
+```JSON
 [
     {
         "id": 7,
@@ -39,10 +40,12 @@ Respuesta:
         "category": "Susto"
     }
 ]
+```
 
 ## Lectura de Productos con Límite
 GET: http://localhost:8080/api/products/?limit=1
 Ejemplo Respuesta:
+```JSON
 [
     {
         "id": 7,
@@ -55,11 +58,13 @@ Ejemplo Respuesta:
         "category": "Susto"
     }
 ]
+```
 
 ## Agregar un Producto
 El ID es automatico.
 POST: http://localhost:8080/api/products
-Ejemplo BODY::
+Ejemplo BODY:
+```JSON
 {
     "title": "titulo ere", 
     "description": "Este es un ejemplo", 
@@ -69,10 +74,12 @@ Ejemplo BODY::
     "stock": 10, 
     "category": "Susto" 
 }
+```
 
 ## Actualizar un Producto
 PUT: http://localhost:8080/api/products/:id
-Ejemplo BODY::
+Ejemplo BODY:
+```JSON
 {
     "title": "modificar", 
     "description": "Efffo", 
@@ -82,18 +89,21 @@ Ejemplo BODY::
     "stock": 10, 
     "category": "Susto" 
 }
+```
 
 ## Eliminar un Producto
 DELETE: http://localhost:8080/api/products/:id
 Ejemplo Respuesta:
+```JSON
 {
     "message": "Producto con ID 1 eliminado"
 }
-
+```
 
 ## Lectura de Todos los Productos
 GET: http://localhost:8080/api/products
 Ejemplo Respuesta:
+```JSON
 [
     {
         "id": 7,
@@ -116,22 +126,24 @@ Ejemplo Respuesta:
         "category": "Susto"
     }
 ]
-
+```
 
 # Carrito
 
 ## Crear un Carrito (id automatico)
 POST: http://localhost:8080/api/carts
 Ejemplo BODY:
+```JSON
 {
     "products": [
     ]
 }
-
+```
 Leer el Contenido de un Carrito
 GET: http://localhost:8080/api/carts/:cid
 Ejemplo: http://localhost:8080/api/carts/2
 Respuesta:
+```JSON
 {
     "id": 2,
     "products": [
@@ -150,18 +162,20 @@ Respuesta:
         }
     ]
 }
-
+```
 
 ## Agregar Producto a un Carrito
 POST: http://localhost:8080/api/carts/:cid/products/:pid
 Ejemplo: http://localhost:8080/api/carts/2/products/7
 Ejemplo BODY:
+```JSON
 {
     "quantity": 1
 }
-
+```
 
 ## Ejemplo datos persistencia; archivo productos.json
+```JSON
 [
   {
     "id": 7,
@@ -184,10 +198,11 @@ Ejemplo BODY:
     "category": "Susto"
   }
 ]
-
+```
 ![Ejemplo datos persistencia; archivo productos.json](../public/image.png)
 
 ## Ejemplo datos persistencia; archivo carrito.json
+```JSON
 [
   {
     "id": 1,
@@ -207,4 +222,5 @@ Ejemplo BODY:
     "products": []
   }
 ]
+```
 ![Ejemplo datos persistencia; archivo carrito.json](../public/image2.png)
